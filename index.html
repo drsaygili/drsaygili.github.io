@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Emre S. Saygılı, MD | Assoc. Prof.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1757a6;
+      --accent: #34ace0;
+      --bg: #f5f8fc;
+      --white: #fff;
+      --shadow: 0 4px 24px rgba(10,70,150,0.08);
+      --radius: 1.6em;
+    }
+    body {
+      margin: 0; 
+      font-family: 'Montserrat', Arial, sans-serif; 
+      background: var(--bg); 
+      color: #232d3b;
+      min-height: 100vh;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.3em 3vw;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      border-radius: 0 0 var(--radius) var(--radius);
+      margin-bottom: 2em;
+    }
+    .navbar .logo {
+      font-size: 1.35em;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 1px;
+      display: flex; align-items: center; gap:0.5em;
+    }
+    .navbar .lang-btn {
+      background: var(--primary); color: var(--white);
+      border: none; border-radius: 2em;
+      font-size: 1em; padding: 0.45em 1.2em;
+      cursor: pointer; transition: background .2s;
+      box-shadow: 0 1px 7px rgba(60,100,220,.06);
+    }
+    .navbar .lang-btn:hover { background: var(--accent);}
+    .container {
+      max-width: 930px;
+      margin: auto;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 2.3em 2.3em 2.5em 2.3em;
+      margin-bottom: 3em;
+    }
+    .header-flex {
+      display: flex; align-items: center; gap:2em;
+      flex-wrap: wrap;
+    }
+    .avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: #e7f0fa;
+      background-image: url('profile.jpg');
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 3px 14px #1757a622;
+      flex-shrink: 0;
+      border: 3px solid var(--accent);
+      display: none; /* Fotoğraf eklerseniz burayı display:block yapın */
+    }
+    .profile {
+      flex: 1;
+    }
+    h1 { font-size: 2.1rem; color: var(--primary); margin-bottom: .13em;}
+    .subtitle { color: #384e72; font-size: 1.15rem;}
+    .links {
+      margin: 1.3em 0 0.8em 0;
+      display: flex; gap: 1.6em;
+    }
+    .links a {
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 1.22em;
+      transition: color .2s;
+    }
+    .links a:hover { color: var(--accent);}
+    .card-section {
+      margin-top: 2.5em; display: grid; gap:2em;
+      grid-template-columns: repeat(auto-fit,minmax(340px,1fr));
+    }
+    .card {
+      background: var(--bg);
+      border-radius: 1.1em;
+      box-shadow: 0 1px 8px #1757a61a;
+      padding: 1.6em 1.3em 1.2em 1.3em;
+      transition: box-shadow .18s;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover { box-shadow: 0 2px 18px #1757a623;}
+    .card-title {
+      font-size: 1.17em;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: .6em;
+      display: flex; align-items: center; gap: 0.6em;
+    }
+    .skills { display: flex; gap: 0.7em; flex-wrap: wrap; margin-top:.5em;}
+    .skill {
+      background: var(--accent); color: var(--white); border-radius: 1em; padding: 0.2em 1em; font-size: .98em;
+      margin-top: 0.2em;
+      box-shadow: 0 1px 4px #1757a622;
+    }
+    ul { padding-left: 1.1em;}
+    ul li { margin-bottom: 0.5em;}
+    .pub-link {
+      color: var(--primary);
+      font-weight: bold;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .pub-link:hover { color: var(--accent);}
+    @media (max-width: 750px) {
+      .container { padding: 1.1em 2vw;}
+      .card-section { grid-template-columns: 1fr; }
+      .header-flex { gap: 1.1em;}
+    }
+    @media (max-width: 440px) {
+      .navbar { flex-direction: column; align-items: flex-start;}
+      .container { padding: 0.6em 1vw;}
+      h1 { font-size: 1.2em;}
+    }
+    /* Animasyon */
+    .card { opacity:0; transform:translateY(30px); animation:fadeInUp .8s forwards; }
+    .card:nth-child(1){animation-delay:.10s;}
+    .card:nth-child(2){animation-delay:.25s;}
+    .card:nth-child(3){animation-delay:.40s;}
+    .card:nth-child(4){animation-delay:.55s;}
+    @keyframes fadeInUp {
+      to { opacity:1; transform:translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo"><i class="fa-solid fa-flask-vial"></i>Emre S. Saygılı, MD</div>
+    <button class="lang-btn" onclick="toggleLang()"><span id="btnText">TR</span></button>
+  </nav>
+  <div class="container">
+    <!-- ENGLISH CONTENT -->
+    <div id="en">
+      <div class="header-flex">
+        <div class="avatar"></div>
+        <div class="profile">
+          <h1>Assoc. Prof. Emre S. SAYGILI, MD</h1>
+          <div class="subtitle">Clinical Endocrinologist & Internist<br>Çanakkale Onsekiz Mart University</div>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/esaygili" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com.tr/citations?user=D87kj3MAAAAJ" title="Google Scholar" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-circle-info"></i>Summary</div>
+          <p>
+            Medical Doctor, Internist, and Clinical Endocrinologist. My research focuses on endocrinology, especially adrenal gland pathologies. I am interested in integrating artificial intelligence and machine learning into medical applications to enhance diagnostic and therapeutic processes.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-briefcase"></i>Experience</div>
+          <ul>
+            <li><b>Assoc. Prof. Dr.</b>, Çanakkale Onsekiz Mart Univ. <span style="color:#5a7592;">2022–Present</span></li>
+            <li><b>Assist. Prof. Dr.</b>, Çanakkale Onsekiz Mart Univ. <span style="color:#5a7592;">2021–2022</span></li>
+            <li><b>Researcher</b>, Univ. of Birmingham <span style="color:#5a7592;">2023</span></li>
+            <li><b>Honorary Observer</b>, Birmingham NHS Trust <span style="color:#5a7592;">2023</span></li>
+            <li><b>Researcher</b>, Univ. of Würzburg <span style="color:#5a7592;">2022</span></li>
+            <li><b>Clinical Endocrinologist</b>, Çanakkale State Hospital <span style="color:#5a7592;">2018–2021</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-graduation-cap"></i>Education</div>
+          <ul>
+            <li><b>Endocrinology & Metabolism</b> – Health Sci. Univ. Sisli Hamidiye Etfal (2015–2018)</li>
+            <li><b>Internal Medicine, MD</b> – Istanbul Univ. Cerrahpaşa Med. Fac. (2007–2012)</li>
+            <li><b>Medical Doctor</b> – Erciyes Univ. Med. Fac. (1999–2006)</li>
+            <li><b>Web Design & Coding</b> – Anadolu Univ. (2016–2019)</li>
+            <li><b>Health Institutions Management</b> – Anadolu Univ. (2014–2015)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-award"></i>Certificates & Skills</div>
+          <ul>
+            <li>Turkish Board of Endocrinology, Diabetes & Metabolism</li>
+            <li>Essential Good Clinical Practice (UK)</li>
+            <li>Turkish Board of Internal Medicine</li>
+            <li>Gevher Nesibe Research Award</li>
+          </ul>
+          <div class="skills">
+            <div class="skill">Statistics</div>
+            <div class="skill">Clinical Research</div>
+            <div class="skill">Medical Writing</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-book-open"></i>Publications</div>
+          <ul>
+            <li>See all publications: <a class="pub-link" href="https://scholar.google.com.tr/citations?user=D87kj3MAAAAJ" target="_blank">Google Scholar Profile</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- TURKISH CONTENT -->
+    <div id="tr" style="display:none">
+      <div class="header-flex">
+        <div class="avatar"></div>
+        <div class="profile">
+          <h1>Doç. Dr. Emre S. SAYGILI</h1>
+          <div class="subtitle">Klinik Endokrinolog & İç Hastalıkları Uzmanı<br>Çanakkale Onsekiz Mart Üniversitesi</div>
+          <div class="links">
+            <a href="https://www.linkedin.com/in/esaygili" title="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://scholar.google.com.tr/citations?user=D87kj3MAAAAJ" title="Google Scholar" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="card-section">
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-circle-info"></i>Özet</div>
+          <p>
+            Tıp doktoru, iç hastalıkları uzmanı ve klinik endokrinologum. Araştırmalarımda özellikle adrenal bezi hastalıkları başta olmak üzere endokrinolojiye odaklanıyorum. Tanı ve tedavi süreçlerini geliştirmek amacıyla yapay zeka ve makine öğrenmesi tekniklerinin tıbbi uygulamalara entegrasyonuna ilgi duyuyorum.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-briefcase"></i>Deneyim</div>
+          <ul>
+            <li><b>Doç. Dr.</b>, Çanakkale Onsekiz Mart Üniv. <span style="color:#5a7592;">2022–Devam</span></li>
+            <li><b>Dr. Öğr. Üyesi</b>, Çanakkale Onsekiz Mart Üniv. <span style="color:#5a7592;">2021–2022</span></li>
+            <li><b>Araştırmacı</b>, Birmingham Üniv. <span style="color:#5a7592;">2023</span></li>
+            <li><b>Gözlemci</b>, Birmingham NHS Trust <span style="color:#5a7592;">2023</span></li>
+            <li><b>Araştırmacı</b>, Würzburg Üniv. <span style="color:#5a7592;">2022</span></li>
+            <li><b>Klinik Endokrinolog</b>, Çanakkale Devlet Hastanesi <span style="color:#5a7592;">2018–2021</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-graduation-cap"></i>Eğitim</div>
+          <ul>
+            <li><b>Endokrinoloji ve Metabolizma</b> – SBÜ Şişli Hamidiye Etfal (2015–2018)</li>
+            <li><b>İç Hastalıkları Uzmanlığı</b> – İÜ Cerrahpaşa Tıp Fakültesi (2007–2012)</li>
+            <li><b>Tıp Doktoru</b> – Erciyes Üniv. Tıp Fakültesi (1999–2006)</li>
+            <li><b>Web Tasarım & Kodlama</b> – Anadolu Üniv. (2016–2019)</li>
+            <li><b>Sağlık Kurumları İşletmeciliği</b> – Anadolu Üniv. (2014–2015)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-award"></i>Sertifikalar & Yetenekler</div>
+          <ul>
+            <li>Türkiye Endokrinoloji, Diyabet ve Metabolizma Yeterlilik Belgesi</li>
+            <li>Temel İyi Klinik Uygulamalar (GCP), İngiltere</li>
+            <li>Türkiye İç Hastalıkları Yeterlilik Belgesi</li>
+            <li>Gevher Nesibe Bilimsel Araştırma Teşvik Ödülü</li>
+          </ul>
+          <div class="skills">
+            <div class="skill">İstatistik</div>
+            <div class="skill">Klinik Araştırma</div>
+            <div class="skill">Tıbbi Yazım</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-book-open"></i>Yayınlar</div>
+          <ul>
+            <li>Tüm yayınlar: <a class="pub-link" href="https://scholar.google.com.tr/citations?user=D87kj3MAAAAJ" target="_blank">Google Scholar Profili</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function toggleLang() {
+      const en = document.getElementById('en');
+      const tr = document.getElementById('tr');
+      const btn = document.getElementById('btnText');
+      if (en.style.display !== 'none') {
+        en.style.display = 'none';
+        tr.style.display = 'block';
+        btn.textContent = 'EN';
+      } else {
+        en.style.display = 'block';
+        tr.style.display = 'none';
+        btn.textContent = 'TR';
+      }
+    }
+  </script>
+</body>
+</html>
